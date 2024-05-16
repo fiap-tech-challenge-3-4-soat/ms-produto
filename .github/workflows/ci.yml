@@ -41,7 +41,7 @@ jobs:
           MYSQL_PASSWORD: ${{ secrets.DB_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
         ports:
-          - 33080:3306
+          - 33082:3306
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
