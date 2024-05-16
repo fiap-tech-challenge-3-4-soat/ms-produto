@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  msproduto-db:
+    image: mysql:8.0.33
+    container_name: mspagamentos-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "33082:3306"
+    environment:
+      MYSQL_DATABASE: msprodutos
+      MYSQL_USER: msproduto
+      MYSQL_PASSWORD: msproduto
+      MYSQL_ROOT_PASSWORD: rootsql
+      SERVICE_NAME: mysql
+    networks:
+      - msproduto-network
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
+    driver: local
+
+networks:
+  msproduto-network:
+    driver: bridge

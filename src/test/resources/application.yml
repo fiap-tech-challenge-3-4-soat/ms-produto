@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:33082/msprodutos_test?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: rootsql
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      continue-on-error: true
+      encoding: UTF-8
+      mode: always
+  data:
+    redis:
+      host: localhost
+      port: 6379
