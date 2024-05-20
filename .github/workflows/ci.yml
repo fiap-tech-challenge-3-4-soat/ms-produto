@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   testes-unitarios:
-    needs: build-app
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +17,7 @@ jobs:
       - name: Executando testes unitários
         run: mvn verify -DskipIntegrationTests
   testes-integrados:
-    needs: build-app
+    needs: build
     runs-on: ubuntu-latest
     services:
       mssql:
