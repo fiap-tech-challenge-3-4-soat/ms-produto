@@ -1,6 +1,10 @@
 server:
   port: 8082
-  
+  servlet:
+    session:
+      cookie:
+        same-site: lax
+
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver

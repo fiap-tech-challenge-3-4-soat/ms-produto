@@ -1,5 +1,5 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17
 ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} ms-produto-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} ms-produto.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "ms-produto-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "ms-produto.jar"]

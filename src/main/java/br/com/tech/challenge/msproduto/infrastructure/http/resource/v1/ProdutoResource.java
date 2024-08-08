@@ -8,6 +8,7 @@ import br.com.tech.challenge.msproduto.application.response.ProdutoResponse;
 import br.com.tech.challenge.msproduto.infrastructure.http.resource.v1.openapi.ProdutoResourceOpenApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,9 @@ public class ProdutoResource implements ProdutoResourceOpenApi {
     public ResponseEntity<ListarProdutosResponse> listar() {
         var resposta = controller.listar();
 
-        return ResponseEntity.ok(resposta);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(resposta);
     }
 
     @Override
@@ -30,7 +33,9 @@ public class ProdutoResource implements ProdutoResourceOpenApi {
     public ResponseEntity<ProdutoResponse> buscar(@PathVariable Long id) {
         var resposta = controller.buscar(id);
 
-        return ResponseEntity.ok(resposta);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(resposta);
     }
 
     @Override
